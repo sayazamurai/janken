@@ -28,7 +28,8 @@ class App extends Component {
     win: 0,
     lose: 0,
     me: '?',
-    rival: '?'
+    rival: '?',
+    result: '?'
   }
 
   buttonClickGoo = () => {
@@ -40,12 +41,19 @@ class App extends Component {
 
     if (rival === 'ちょき') {
       this.setState({
-        win: this.state.win + 1
+        win: this.state.win + 1,
+        result: '勝ち😀'
       })
     }
     if (rival === 'ぱー') {
       this.setState({
-        lose: this.state.lose + 1
+        lose: this.state.lose + 1,
+        result: '負け😭'
+      })
+    }
+    if (rival === 'ぐー') {
+      this.setState({
+        result: 'あいこ🙄'
       })
     }
   }
@@ -59,12 +67,19 @@ class App extends Component {
 
     if (rival === 'ぱー') {
       this.setState({
-        win: this.state.win + 1
+        win: this.state.win + 1,
+        result: '勝ち😀'
       })
     }
     if (rival === 'ぐー') {
       this.setState({
-        lose: this.state.lose + 1
+        lose: this.state.lose + 1,
+        result: '負け😭'
+      })
+    }
+    if (rival === 'ちょき') {
+      this.setState({
+        result: 'あいこ🙄'
       })
     }
   }
@@ -78,12 +93,19 @@ class App extends Component {
 
     if (rival === 'ぐー') {
       this.setState({
-        win: this.state.win + 1
+        win: this.state.win + 1,
+        result: '勝ち😀'
       })
     }
     if (rival === 'ちょき') {
       this.setState({
-        lose: this.state.lose + 1
+        lose: this.state.lose + 1,
+        result: '負け😭'
+      })
+    }
+    if (rival === 'ぱー') {
+      this.setState({
+        result: 'あいこ🙄'
       })
     }
   }
@@ -93,7 +115,8 @@ class App extends Component {
       win: 0,
       lose: 0,
       me: '?',
-      rival: '?'
+      rival: '?',
+      result: '?'
     })
   }
 
@@ -101,7 +124,13 @@ class App extends Component {
     return (
       <div className="avenir tc pt5">
         <div className="mb2 f3">相手 {this.state.rival}</div>
-        <div className="mb4 f3">自分 {this.state.me}</div>
+        <div
+          className="mb2
+         f3"
+        >
+          自分 {this.state.me}
+        </div>
+        <div className="mb4 f3">結果 {this.state.result}</div>
         <div>
           <button
             onClick={this.buttonClickGoo}
