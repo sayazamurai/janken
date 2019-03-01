@@ -1,5 +1,7 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
 import React, { Component } from 'react'
-import 'tachyons'
+import 'modern-normalize'
 import './App.css'
 import Twemoji from './Twemoji'
 
@@ -178,43 +180,106 @@ class App extends Component {
 
   render() {
     return (
-      <div className="avenir tc pt5">
-        <div className="mb2 f3">
-          相手 <span className="f1">{textToEmoji(this.state.rival)}</span>
+      <div
+        css={css`
+          font-family: avenir;
+          text-align: center;
+          padding-top: 50px;
+        `}
+      >
+        <div
+          css={css`
+            margin-bottom: 20px;
+            font-size: 30px;
+          `}
+        >
+          相手{' '}
+          <span
+            css={css`
+              font-size: 40px;
+            `}
+          >
+            {textToEmoji(this.state.rival)}
+          </span>
         </div>
         <div
-          className="mb4
-         f3"
+          css={css`
+            margin-bottom: 20px;
+            font-size: 30px;
+          `}
         >
-          自分 <span className="f1">{textToEmoji(this.state.me)}</span>
+          自分{' '}
+          <span
+            css={css`
+              font-size: 40px;
+            `}
+          >
+            {textToEmoji(this.state.me)}
+          </span>
         </div>
-        <div className="mb4 f3">結果 {this.state.result}</div>
+        <div
+          css={css`
+            margin-bottom: 20px;
+            font-size: 30px;
+          `}
+        >
+          結果 {this.state.result}
+        </div>
         <div>
           <button
             onClick={this.buttonClickGoo}
-            className="f2 link dim br1 ba ph3 pv2 mb2 dib dark-pink b--dark-pink"
+            css={css`
+              font-size: 30px;
+              border-radius: 5px;
+              border: 2px solid #cf7dac;
+              padding: 10px 20px;
+              margin-bottom: 20px;
+            `}
           >
             <Twemoji emoji="✊" />
           </button>{' '}
           <button
             onClick={this.buttonClickChoki}
-            className="f2 link dim br1 ba ph3 pv2 mb2 dib dark-pink b--dark-pink"
+            css={css`
+              font-size: 30px;
+              border-radius: 5px;
+              border: 2px solid #cf7dac;
+              padding: 10px 20px;
+              margin-bottom: 20px;
+            `}
           >
             <Twemoji emoji="✌️" />
           </button>{' '}
           <button
             onClick={this.buttonClickPa}
-            className="f2 link dim br1 ba ph3 pv2 mb2 dib dark-pink b--dark-pink"
+            css={css`
+              font-size: 30px;
+              border-radius: 5px;
+              border: 2px solid #cf7dac;
+              padding: 10px 20px;
+              margin-bottom: 20px;
+            `}
           >
             <Twemoji emoji="🖐" />
           </button>
         </div>
-        <div className="mt4 mb4 f3">
+        <div
+          css={css`
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 20px;
+          `}
+        >
           {this.state.win}勝{this.state.lose}敗
         </div>
         <button
           onClick={this.buttonClickReset}
-          className="link dim br1 ba ph3 pv2 mb2 dib dark-pink b--dark-pink"
+          css={css`
+            border-radius: 5px;
+            border: 2px solid #cf7dac;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+          `}
         >
           やり直す
         </button>
