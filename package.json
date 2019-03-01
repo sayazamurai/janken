@@ -6,7 +6,8 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",
-    "tachyons": "^4.10.0"
+    "tachyons": "^4.10.0",
+    "twemoji": "^11.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

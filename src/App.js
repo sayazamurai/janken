@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import 'tachyons'
 import './App.css'
+import Twemoji from './Twemoji'
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max))
@@ -23,13 +24,23 @@ const getRival = () => {
   }
 }
 
+const textToEmoji = text => {
+  if (text === 'ぐー') {
+    return <Twemoji emoji="✊" />
+  } else if (text === 'ちょき') {
+    return <Twemoji emoji="✌️" />
+  } else if (text === 'ぱー') {
+    return <Twemoji emoji="🖐" />
+  }
+}
+
 class App extends Component {
   state = {
     win: 0,
     lose: 0,
-    me: '?',
-    rival: '?',
-    result: '?'
+    me: '',
+    rival: '',
+    result: ''
   }
 
   buttonClickGoo = () => {
@@ -42,18 +53,33 @@ class App extends Component {
     if (rival === 'ちょき') {
       this.setState({
         win: this.state.win + 1,
-        result: '勝ち😀'
+        result: (
+          <>
+            勝ち
+            <Twemoji emoji="😀" />
+          </>
+        )
       })
     }
     if (rival === 'ぱー') {
       this.setState({
         lose: this.state.lose + 1,
-        result: '負け😭'
+        result: (
+          <>
+            負け
+            <Twemoji emoji="😭" />
+          </>
+        )
       })
     }
     if (rival === 'ぐー') {
       this.setState({
-        result: 'あいこ🙄'
+        result: (
+          <>
+            あいこ
+            <Twemoji emoji="🙄" />
+          </>
+        )
       })
     }
   }
@@ -68,18 +94,33 @@ class App extends Component {
     if (rival === 'ぱー') {
       this.setState({
         win: this.state.win + 1,
-        result: '勝ち😀'
+        result: (
+          <>
+            勝ち
+            <Twemoji emoji="😀" />
+          </>
+        )
       })
     }
     if (rival === 'ぐー') {
       this.setState({
         lose: this.state.lose + 1,
-        result: '負け😭'
+        result: (
+          <>
+            負け
+            <Twemoji emoji="😭" />
+          </>
+        )
       })
     }
     if (rival === 'ちょき') {
       this.setState({
-        result: 'あいこ🙄'
+        result: (
+          <>
+            あいこ
+            <Twemoji emoji="🙄" />
+          </>
+        )
       })
     }
   }
@@ -94,18 +135,33 @@ class App extends Component {
     if (rival === 'ぐー') {
       this.setState({
         win: this.state.win + 1,
-        result: '勝ち😀'
+        result: (
+          <>
+            勝ち
+            <Twemoji emoji="😀" />
+          </>
+        )
       })
     }
     if (rival === 'ちょき') {
       this.setState({
         lose: this.state.lose + 1,
-        result: '負け😭'
+        result: (
+          <>
+            負け
+            <Twemoji emoji="😭" />
+          </>
+        )
       })
     }
     if (rival === 'ぱー') {
       this.setState({
-        result: 'あいこ🙄'
+        result: (
+          <>
+            あいこ
+            <Twemoji emoji="🙄" />
+          </>
+        )
       })
     }
   }
@@ -114,41 +170,43 @@ class App extends Component {
     this.setState({
       win: 0,
       lose: 0,
-      me: '?',
-      rival: '?',
-      result: '?'
+      me: '',
+      rival: '',
+      result: ''
     })
   }
 
   render() {
     return (
       <div className="avenir tc pt5">
-        <div className="mb2 f3">相手 {this.state.rival}</div>
+        <div className="mb2 f3">
+          相手 <span className="f1">{textToEmoji(this.state.rival)}</span>
+        </div>
         <div
-          className="mb2
+          className="mb4
          f3"
         >
-          自分 {this.state.me}
+          自分 <span className="f1">{textToEmoji(this.state.me)}</span>
         </div>
         <div className="mb4 f3">結果 {this.state.result}</div>
         <div>
           <button
             onClick={this.buttonClickGoo}
-            className="link dim br1 ba ph3 pv2 mb2 dib dark-pink b--dark-pink"
+            className="f2 link dim br1 ba ph3 pv2 mb2 dib dark-pink b--dark-pink"
           >
-            ぐー
+            <Twemoji emoji="✊" />
           </button>{' '}
           <button
             onClick={this.buttonClickChoki}
-            className="link dim br1 ba ph3 pv2 mb2 dib dark-pink b--dark-pink"
+            className="f2 link dim br1 ba ph3 pv2 mb2 dib dark-pink b--dark-pink"
           >
-            ちょき
+            <Twemoji emoji="✌️" />
           </button>{' '}
           <button
             onClick={this.buttonClickPa}
-            className="link dim br1 ba ph3 pv2 mb2 dib dark-pink b--dark-pink"
+            className="f2 link dim br1 ba ph3 pv2 mb2 dib dark-pink b--dark-pink"
           >
-            ぱー
+            <Twemoji emoji="🖐" />
           </button>
         </div>
         <div className="mt4 mb4 f3">
